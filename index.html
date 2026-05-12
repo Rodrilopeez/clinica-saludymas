@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clínica Salud y Más - Centro de salud integral en Boadilla del Monte. Psicología, nutrición, fisioterapia, medicina natural y más.">
+  <title>Clínica Salud y Más | Salud Integral en Boadilla del Monte</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+  HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#" class="header__logo" data-tab="inicio">
+        <img src="https://clinicasaludymas.com/wp-content/uploads/2020/12/Logo.jpg" alt="Clínica Salud y Más" class="header__logo-img">
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <ul class="header__menu">
+          <li><button class="header__link active" data-tab="inicio">Inicio</button></li>
+          <li class="header__dropdown">
+            <button class="header__link" data-tab="terapias">Terapias <span class="header__arrow">&#9662;</span></button>
+            <div class="header__mega">
+              <div class="header__mega-grid">
+                <button class="header__mega-item" data-tab="psicologia">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Psicología</strong><small>Salud mental y bienestar</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="coaching">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Coaching</strong><small>Desarrollo personal</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="tratamiento-manual">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Tratamiento Manual</strong><small>Fisioterapia y osteopatía</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="nutricion">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Nutrición</strong><small>Alimentación consciente</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="belleza">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Belleza</strong><small>Estética y cuidado</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="medicina-natural">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Medicina Natural</strong><small>Acupuntura y MTC</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="psicoeducativa">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Intervención Psicoeducativa</strong><small>Desarrollo cognitivo</small></div>
+                </button>
+                <button class="header__mega-item" data-tab="clases">
+                  <span class="header__mega-dot"></span>
+                  <div><strong>Clases</strong><small>Yoga, pilates y más</small></div>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li><button class="header__link" data-tab="profesionales">Profesionales</button></li>
+          <li><button class="header__link" data-tab="videoconsulta">Videoconsulta</button></li>
+          <li><button class="header__link" data-tab="noticias">Noticias</button></li>
+          <li><button class="header__link header__link--cta" data-tab="contacto">Contacto</button></li>
+        </ul>
+      </nav>
+      <button class="header__burger" id="burgerBtn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+  MAIN CONTENT — Sistema de Pestañas
+  ============================================================ -->
+  <main class="main-content">
+
+    <!-- ====== TAB: INICIO ====== -->
+    <section class="tab-panel active" id="tab-inicio">
+
+      <!-- Hero Slider -->
+      <div class="hero" id="hero">
+        <div class="hero__slides" id="heroSlides">
+          <div class="hero__slide active" style="background-image: url('https://clinicasaludymas.com/wp-content/uploads/2021/01/slide1.jpg')"></div>
+          <div class="hero__slide" style="background-image: url('https://clinicasaludymas.com/wp-content/uploads/2021/01/slide2.jpg')"></div>
+          <div class="hero__slide" style="background-image: url('https://clinicasaludymas.com/wp-content/uploads/2021/01/slide3.jpg')"></div>
+          <div class="hero__slide" style="background-image: url('https://clinicasaludymas.com/wp-content/uploads/2021/01/slide4.jpg')"></div>
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <p class="hero__pretitle">Boadilla del Monte &middot; Madrid</p>
+          <h1 class="hero__title">Cuidamos de tu salud<br>y la de los tuyos</h1>
+          <p class="hero__subtitle">Un espacio donde mente y cuerpo se encuentran. Atención integral con los mejores profesionales.</p>
+          <div class="hero__actions">
+            <button class="btn btn--primary" data-tab="terapias">Nuestras Terapias</button>
+            <button class="btn btn--outline" data-tab="contacto">Solicitar Cita</button>
+          </div>
+        </div>
+        <div class="hero__indicators" id="heroIndicators">
+          <button class="hero__dot active" data-slide="0"></button>
+          <button class="hero__dot" data-slide="1"></button>
+          <button class="hero__dot" data-slide="2"></button>
+          <button class="hero__dot" data-slide="3"></button>
+        </div>
+        <button class="hero__arrow hero__arrow--prev" id="heroPrev">&#8249;</button>
+        <button class="hero__arrow hero__arrow--next" id="heroNext">&#8250;</button>
+      </div>
+
+      <!-- Filosofía -->
+      <section class="philosophy">
+        <div class="container">
+          <div class="philosophy__grid">
+            <div class="philosophy__image">
+              <div class="philosophy__image-frame">
+                <img src="https://clinicasaludymas.com/wp-content/uploads/2021/01/slide1.jpg" alt="Clínica Salud y Más" loading="lazy">
+              </div>
+              <div class="philosophy__badge">
+                <span class="philosophy__badge-number">2012</span>
+                <span class="philosophy__badge-text">Desde</span>
+              </div>
+            </div>
+            <div class="philosophy__content">
+              <span class="section-tag">Nuestra Filosofía</span>
+              <h2 class="section-title">Una clínica global para una salud integral</h2>
+              <p class="philosophy__text">Clínica Salud y Más nace del esfuerzo por ofrecer un lugar donde mente y cuerpo sean uno. Representamos la viva imagen de <em>yoga = Unión</em>: el equilibrio perfecto entre opuestos.</p>
+              <p class="philosophy__text">Nuestra visión holística integra psicología, estética, acupuntura, fisioterapia y entrenamiento para acompañarte en cualquier edad y etapa vital.</p>
+              <div class="philosophy__features">
+                <div class="philosophy__feature"><span>&#10003;</span> Atención personalizada e integral</div>
+                <div class="philosophy__feature"><span>&#10003;</span> Profesionales especializados</div>
+                <div class="philosophy__feature"><span>&#10003;</span> Centro sanitario registrado CS 10443</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Servicios Grid -->
+      <section class="services" id="terapias">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Nuestras Terapias</span>
+            <h2 class="section-title">Un universo de bienestar a tu alcance</h2>
+            <p class="section-subtitle">Descubre nuestra gama completa de servicios diseñados para cuidar cada aspecto de tu salud.</p>
+          </div>
+          <div class="services__grid">
+            <button class="service-card" data-tab="psicologia">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <h3>Psicología</h3>
+              <p>Acompañamiento terapéutico para adultos, adolescentes y niños.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="coaching">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+              <h3>Coaching</h3>
+              <p>Desbloquea tu potencial con sesiones individuales y grupales.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="tratamiento-manual">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 22V8h4v14"/><path d="M8 10h8"/></svg></div>
+              <h3>Tratamiento Manual</h3>
+              <p>Fisioterapia, osteopatía y técnicas manuales avanzadas.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="nutricion">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+              <h3>Nutrición</h3>
+              <p>Planes nutricionales personalizados y alimentación consciente.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="belleza">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+              <h3>Belleza</h3>
+              <p>Tratamientos estéticos avanzados que realzan tu belleza natural.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="medicina-natural">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <h3>Medicina Natural</h3>
+              <p>Acupuntura y medicina tradicional china de forma holística.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="psicoeducativa">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+              <h3>Intervención Psicoeducativa</h3>
+              <p>Apoyo especializado para dificultades de aprendizaje y TDAH.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+            <button class="service-card" data-tab="clases">
+              <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+              <h3>Clases</h3>
+              <p>Yoga, pilates, meditación y actividades para cuerpo y mente.</p>
+              <span class="service-card__cta">Descubrir &rarr;</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Excelencia -->
+      <section class="excellence">
+        <div class="container">
+          <div class="excellence__grid">
+            <div class="excellence__content">
+              <span class="section-tag section-tag--light">Excelencia</span>
+              <h2 class="section-title section-title--light">Un equipo que marca la diferencia</h2>
+              <p>Profesionales altamente cualificados que comparten una visión común: tratarte como una persona completa, no como un conjunto de síntomas.</p>
+              <button class="btn btn--primary" data-tab="profesionales">Conoce a Nuestro Equipo</button>
+            </div>
+            <div class="excellence__stats">
+              <div class="stat"><span class="stat__number" data-target="8">0</span><span class="stat__label">Especialidades</span></div>
+              <div class="stat"><span class="stat__number" data-target="13">0</span><span class="stat__label">Años de experiencia</span></div>
+              <div class="stat"><span class="stat__number" data-target="5000">0</span><span class="stat__suffix">+</span><span class="stat__label">Pacientes</span></div>
+              <div class="stat"><span class="stat__number" data-target="1">0</span><span class="stat__label">Visión integral</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ====== TAB: TERAPIAS (overview) ====== -->
+    <section class="tab-panel" id="tab-terapias">
+      <div class="tab-hero">
+        <div class="container">
+          <span class="section-tag">Terapias</span>
+          <h1 class="tab-hero__title">Un universo de bienestar</h1>
+          <p class="tab-hero__subtitle">Descubre nuestra gama completa de servicios. Haz clic en cada terapia para conocerla en detalle.</p>
+        </div>
+      </div>
+      <div class="container"><div class="services__grid" style="padding: 4rem 0;">
+        <button class="service-card" data-tab="psicologia"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h3>Psicología</h3><p>Acompañamiento terapéutico para todas las edades.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="coaching"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Coaching</h3><p>Desarrollo personal y profesional.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="tratamiento-manual"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 22V8h4v14"/><path d="M8 10h8"/></svg></div><h3>Tratamiento Manual</h3><p>Fisioterapia, osteopatía y técnicas manuales.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="nutricion"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><h3>Nutrición</h3><p>Alimentación consciente y saludable.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="belleza"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3>Belleza</h3><p>Estética y cuidado personal.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="medicina-natural"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Medicina Natural</h3><p>Acupuntura y medicina tradicional china.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="psicoeducativa"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div><h3>Intervención Psicoeducativa</h3><p>Dificultades de aprendizaje y TDAH.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+        <button class="service-card" data-tab="clases"><div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><h3>Clases</h3><p>Yoga, pilates, meditación.</p><span class="service-card__cta">Descubrir &rarr;</span></button>
+      </div></div>
+    </section>
+
+    <!-- ====== TAB: PSICOLOGIA ====== -->
+    <section class="tab-panel" id="tab-psicologia">
+      <div class="tab-hero tab-hero--psicologia">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Psicología</h1>
+          <p class="tab-hero__subtitle">Acompañamiento terapéutico para adultos, adolescentes y niños. Gestión emocional, ansiedad, autoestima y desarrollo personal.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Tu bienestar emocional, nuestra prioridad</h2>
+            <p>En Clínica Salud y Más entendemos la salud mental como el pilar fundamental del bienestar integral. Nuestro equipo de psicólogos ofrece un espacio seguro y confidencial donde explorar tus emociones, superar dificultades y crecer personalmente.</p>
+            <p>Trabajamos desde un enfoque integrador, combinando las técnicas más efectivas para adaptarnos a tus necesidades específicas. Creemos en una psicología cercana, humana y basada en la evidencia.</p>
+            <h3>Tratamientos</h3>
+            <ul class="tab-detail__list">
+              <li>Ansiedad, depresión y gestión del estrés</li>
+              <li>Terapia infanto-juvenil y orientación familiar</li>
+              <li>Autoestima y habilidades sociales</li>
+              <li>Duelo y procesos de cambio vital</li>
+              <li>Terapia de pareja</li>
+              <li>Mindfulness y técnicas de regulación emocional</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Primera Cita</button>
+          </div>
+          <aside class="tab-detail__sidebar">
+            <div class="tab-detail__info">
+              <h4>¿Sabías que...?</h4>
+              <p>La terapia psicológica no solo ayuda en momentos de crisis. Es una herramienta de autoconocimiento que mejora tu calidad de vida, tus relaciones y tu rendimiento en todas las áreas.</p>
+            </div>
+            <div class="tab-detail__info tab-detail__info--accent">
+              <h4>Primera consulta gratuita</h4>
+              <p>Te ofrecemos una primera sesión informativa sin compromiso para conocerte y entender cómo podemos ayudarte.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: COACHING ====== -->
+    <section class="tab-panel" id="tab-coaching">
+      <div class="tab-hero tab-hero--coaching">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Coaching</h1>
+          <p class="tab-hero__subtitle">Desbloquea tu potencial. Sesiones individuales y grupales para alcanzar tus metas personales y profesionales.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Transforma tu vida con propósito</h2>
+            <p>El coaching es un proceso de acompañamiento que te ayuda a clarificar tus objetivos, identificar obstáculos y diseñar un plan de acción efectivo. En nuestra clínica, combinamos el rigor del método con una visión humanista.</p>
+            <p>Tanto si buscas mejorar tu rendimiento profesional, encontrar equilibrio vital o superar bloqueos personales, nuestro equipo de coaches te guiará en cada paso del camino.</p>
+            <h3>Áreas de trabajo</h3>
+            <ul class="tab-detail__list">
+              <li>Coaching personal y desarrollo de propósito vital</li>
+              <li>Coaching profesional y transiciones de carrera</li>
+              <li>Liderazgo y habilidades directivas</li>
+              <li>Gestión del tiempo y productividad</li>
+              <li>Equilibrio vida personal-profesional</li>
+              <li>Coaching de equipos y organizaciones</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Sesión Informativa</button>
+          </div>
+          <aside class="tab-detail__sidebar">
+            <div class="tab-detail__info">
+              <h4>¿En qué se diferencia de la psicología?</h4>
+              <p>Mientras la psicología profundiza en el origen emocional, el coaching se enfoca en el presente y en construir tu futuro con herramientas prácticas y planes de acción concretos.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: TRATAMIENTO MANUAL ====== -->
+    <section class="tab-panel" id="tab-tratamiento-manual">
+      <div class="tab-hero tab-hero--manual">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Tratamiento Manual</h1>
+          <p class="tab-hero__subtitle">Fisioterapia, osteopatía y técnicas manuales avanzadas para aliviar el dolor y recuperar el equilibrio físico.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Recupera tu movilidad, recupera tu vida</h2>
+            <p>Nuestro enfoque en tratamiento manual integra la fisioterapia clásica con técnicas osteopáticas y métodos avanzados de valoración. No tratamos solo el síntoma: buscamos el origen de tu dolor.</p>
+            <h3>Servicios</h3>
+            <ul class="tab-detail__list">
+              <li>Fisioterapia deportiva y readaptación de lesiones</li>
+              <li>Osteopatía estructural, visceral y craneal</li>
+              <li>Terapia manual ortopédica</li>
+              <li>Liberación miofascial y puntos gatillo</li>
+              <li>Vendaje neuromuscular (kinesiotaping)</li>
+              <li>Rehabilitación post-quirúrgica</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Pedir Valoración</button>
+          </div>
+          <aside class="tab-detail__sidebar">
+            <div class="tab-detail__info">
+              <h4>Sin esperas</h4>
+              <p>Ofrecemos disponibilidad inmediata y horario amplio para que puedas empezar tu tratamiento cuanto antes.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: NUTRICION ====== -->
+    <section class="tab-panel" id="tab-nutricion">
+      <div class="tab-hero tab-hero--nutricion">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Nutrición</h1>
+          <p class="tab-hero__subtitle">Planes nutricionales personalizados. Alimentación consciente, control de peso y educación alimentaria.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Alimenta tu salud de forma consciente</h2>
+            <p>Entendemos la nutrición como un pilar fundamental de la salud. Nuestro enfoque va más allá de las dietas: te enseñamos a relacionarte de forma saludable con la comida para toda la vida.</p>
+            <h3>Servicios</h3>
+            <ul class="tab-detail__list">
+              <li>Planes nutricionales personalizados</li>
+              <li>Nutrición clínica para patologías específicas</li>
+              <li>Control de peso y reeducación alimentaria</li>
+              <li>Nutrición deportiva</li>
+              <li>Alimentación en etapas vitales (embarazo, menopausia, tercera edad)</li>
+              <li>Talleres de cocina saludable</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Consulta</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: BELLEZA ====== -->
+    <section class="tab-panel" id="tab-belleza">
+      <div class="tab-hero tab-hero--belleza">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Belleza</h1>
+          <p class="tab-hero__subtitle">Tratamientos estéticos avanzados que realzan tu belleza natural con la máxima seguridad y profesionalidad.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Realza tu belleza natural</h2>
+            <p>Nuestra unidad de belleza combina tecnología avanzada con un enfoque natural. Te ofrecemos tratamientos personalizados que respetan tu piel y realzan tu belleza única.</p>
+            <h3>Tratamientos</h3>
+            <ul class="tab-detail__list">
+              <li>Faciales personalizados y tratamientos antiedad</li>
+              <li>Corporales: remodelación, flacidez y celulitis</li>
+              <li>Depilación láser de última generación</li>
+              <li>Manicura y pedicura profesional</li>
+              <li>Asesoría de imagen personalizada</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Cita</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: MEDICINA NATURAL ====== -->
+    <section class="tab-panel" id="tab-medicina-natural">
+      <div class="tab-hero tab-hero--natural">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Medicina Natural y MTC</h1>
+          <p class="tab-hero__subtitle">Acupuntura, medicina tradicional china y terapias naturales que restauran el equilibrio energético de tu organismo.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>El equilibrio natural de tu cuerpo</h2>
+            <p>La Medicina Tradicional China entiende la salud como un estado de equilibrio energético. Nuestros tratamientos milenarios, combinados con el conocimiento moderno, ofrecen soluciones efectivas y naturales.</p>
+            <h3>Tratamientos</h3>
+            <ul class="tab-detail__list">
+              <li>Acupuntura clásica y electroacupuntura</li>
+              <li>Auriculoterapia y moxibustión</li>
+              <li>Ventosas y fitoterapia china</li>
+              <li>Medicina ortomolecular</li>
+              <li>Homeopatía y terapias complementarias</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Consulta</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: PSICOEDUCATIVA ====== -->
+    <section class="tab-panel" id="tab-psicoeducativa">
+      <div class="tab-hero tab-hero--psicoeducativa">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Terapia</span>
+          <h1 class="tab-hero__title">Intervención Psicoeducativa</h1>
+          <p class="tab-hero__subtitle">Apoyo especializado para dificultades de aprendizaje, TDAH y desarrollo cognitivo.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Potenciamos las capacidades únicas de cada persona</h2>
+            <p>Cada mente es diferente. Nuestro equipo especializado evalúa y diseña programas individualizados para potenciar el desarrollo cognitivo y superar las dificultades de aprendizaje.</p>
+            <h3>Áreas de intervención</h3>
+            <ul class="tab-detail__list">
+              <li>Evaluación y diagnóstico psicopedagógico</li>
+              <li>TDAH: estrategias de atención y organización</li>
+              <li>Dificultades de lectoescritura y dislexia</li>
+              <li>Técnicas de estudio y organización escolar</li>
+              <li>Habilidades sociales y comunicación</li>
+              <li>Orientación a familias y coordinación escolar</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Valoración</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: CLASES ====== -->
+    <section class="tab-panel" id="tab-clases">
+      <div class="tab-hero tab-hero--clases">
+        <div class="container">
+          <button class="tab-back" data-tab="inicio">&larr; Volver</button>
+          <span class="section-tag">Actividad</span>
+          <h1 class="tab-hero__title">Clases</h1>
+          <p class="tab-hero__subtitle">Yoga, pilates, meditación y actividades grupales para mantener cuerpo y mente en armonía.</p>
+        </div>
+      </div>
+      <div class="container tab-detail">
+        <div class="tab-detail__grid">
+          <div class="tab-detail__main">
+            <h2>Mueve tu cuerpo, calma tu mente</h2>
+            <p>Nuestras clases están diseñadas para todos los niveles, con grupos reducidos que garantizan una atención personalizada. Cada sesión es una oportunidad para reconectar contigo mismo.</p>
+            <h3>Disciplinas</h3>
+            <ul class="tab-detail__list">
+              <li>Hatha Yoga y Vinyasa Flow</li>
+              <li>Yoga restaurativo y Yin Yoga</li>
+              <li>Pilates suelo y con equipamiento</li>
+              <li>Meditación guiada y Mindfulness</li>
+              <li>Ejercicio terapéutico para mayores</li>
+              <li>Talleres monográficos de fin de semana</li>
+            </ul>
+            <button class="btn btn--primary" data-tab="contacto">Ver Horarios</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: PROFESIONALES ====== -->
+    <section class="tab-panel" id="tab-profesionales">
+      <div class="tab-hero tab-hero--profesionales">
+        <div class="container">
+          <span class="section-tag section-tag--light">Equipo</span>
+          <h1 class="tab-hero__title">Nuestros Profesionales</h1>
+          <p class="tab-hero__subtitle">Un equipo multidisciplinar que comparte una visión holística de la salud.</p>
+        </div>
+      </div>
+      <div class="container" style="padding: 5rem 0;">
+        <div class="team-grid">
+          <div class="team-card"><div class="team-card__avatar">DR</div><h3>Dirección Clínica</h3><p>Dirección y coordinación del equipo multidisciplinar. Visión integradora de todas las áreas de salud.</p></div>
+          <div class="team-card"><div class="team-card__avatar">PS</div><h3>Psicología</h3><p>Psicólogos colegiados especializados en terapia cognitivo-conductual, sistémica y mindfulness.</p></div>
+          <div class="team-card"><div class="team-card__avatar">FT</div><h3>Fisioterapia</h3><p>Fisioterapeutas y osteópatas con formación internacional en técnicas manuales avanzadas.</p></div>
+          <div class="team-card"><div class="team-card__avatar">NT</div><h3>Nutrición</h3><p>Nutricionistas clínicos y deportivos con enfoque en alimentación consciente y personalizada.</p></div>
+          <div class="team-card"><div class="team-card__avatar">AC</div><h3>Acupuntura</h3><p>Especialistas en Medicina Tradicional China formados en las mejores escuelas internacionales.</p></div>
+          <div class="team-card"><div class="team-card__avatar">BL</div><h3>Belleza</h3><p>Esteticistas y asesores de imagen con tecnología de vanguardia y productos de alta gama.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: VIDEOCONSULTA ====== -->
+    <section class="tab-panel" id="tab-videoconsulta">
+      <div class="tab-hero tab-hero--telehealth">
+        <div class="container">
+          <span class="section-tag section-tag--light">Online</span>
+          <h1 class="tab-hero__title">Videoconsulta</h1>
+          <p class="tab-hero__subtitle">Tu salud, estés donde estés. Consultas online con total privacidad y seguridad.</p>
+        </div>
+      </div>
+      <div class="container" style="padding: 5rem 0;">
+        <div class="telehealth-page">
+          <p style="font-size:1.15rem;color:var(--gray-600);max-width:700px;margin:0 auto 3rem;text-align:center;">Ofrecemos psicología, coaching y nutrición en modalidad online. La misma calidad profesional, desde la comodidad de tu hogar y con los más altos estándares de confidencialidad.</p>
+          <div style="text-align:center;">
+            <button class="btn btn--primary" data-tab="contacto">Solicitar Videoconsulta</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: NOTICIAS ====== -->
+    <section class="tab-panel" id="tab-noticias">
+      <div class="tab-hero tab-hero--noticias">
+        <div class="container">
+          <span class="section-tag">Blog de Salud</span>
+          <h1 class="tab-hero__title">Noticias</h1>
+          <p class="tab-hero__subtitle">Información, consejos y reflexiones para tu bienestar.</p>
+        </div>
+      </div>
+      <div class="container" style="padding: 5rem 0;">
+        <div class="news__grid">
+          <article class="news-card-new">
+            <div class="news-card__date">12 Mayo 2026</div>
+            <h3>Sexualización precoz y redes sociales</h3>
+            <p>Reflexionamos sobre el impacto que las redes sociales tienen en el desarrollo de niños y adolescentes.</p>
+            <span class="news-card__link">Leer artículo &rarr;</span>
+          </article>
+          <article class="news-card-new">
+            <div class="news-card__date">7 Mayo 2026</div>
+            <h3>Redes sociales: ¿compañía o soledad?</h3>
+            <p>Analizamos la paradoja de la hiperconexión digital y el aislamiento emocional.</p>
+            <span class="news-card__link">Leer artículo &rarr;</span>
+          </article>
+          <article class="news-card-new">
+            <div class="news-card__date">7 Mayo 2026</div>
+            <h3>El uso del móvil y las redes sociales</h3>
+            <p>Exploramos los efectos neurológicos del uso intensivo del móvil en nuestro cerebro.</p>
+            <span class="news-card__link">Leer artículo &rarr;</span>
+          </article>
+          <article class="news-card-new">
+            <div class="news-card__date">6 Mayo 2026</div>
+            <h3>Neuromodulación</h3>
+            <p>Descubre las últimas técnicas de neuromodulación para mejorar tu bienestar cognitivo.</p>
+            <span class="news-card__link">Leer artículo &rarr;</span>
+          </article>
+          <article class="news-card-new">
+            <div class="news-card__date">4 Mayo 2026</div>
+            <h3>Bienestar en la tercera edad</h3>
+            <p>Estrategias para mantener una vida plena, activa y saludable durante la madurez.</p>
+            <span class="news-card__link">Leer artículo &rarr;</span>
+          </article>
+          <article class="news-card-new">
+            <div class="news-card__date">4 Mayo 2026</div>
+            <h3>Envejecimiento activo</h3>
+            <p>Claves para un envejecimiento saludable basado en la actividad física y mental.</p>
+            <span class="news-card__link">Leer artículo &rarr;</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TAB: CONTACTO ====== -->
+    <section class="tab-panel" id="tab-contacto">
+      <div class="tab-hero tab-hero--contacto">
+        <div class="container">
+          <span class="section-tag">Contacto</span>
+          <h1 class="tab-hero__title">Estamos aquí para ti</h1>
+          <p class="tab-hero__subtitle">Da el primer paso hacia tu bienestar. Contacta con nosotros.</p>
+        </div>
+      </div>
+      <div class="container" style="padding: 5rem 0;">
+        <div class="contact__grid">
+          <div class="contact__info-new">
+            <div class="contact__item-new">
+              <span class="contact__item-new-icon">&#9993;</span>
+              <div><strong>Email</strong><a href="mailto:info@clinicasaludymas.com">info@clinicasaludymas.com</a></div>
+            </div>
+            <div class="contact__item-new">
+              <span class="contact__item-new-icon">&#9742;</span>
+              <div><strong>Teléfono</strong><a href="tel:+34917153844">91 715 38 44</a><a href="tel:+34670751881">670 75 18 81</a></div>
+            </div>
+            <div class="contact__item-new">
+              <span class="contact__item-new-icon">&#9906;</span>
+              <div><strong>Dirección</strong><address>C/ Isabel de Farnesio 2<br>28660 Boadilla del Monte, Madrid</address></div>
+            </div>
+            <div class="contact__item-new">
+              <span class="contact__item-new-icon">&#9733;</span>
+              <div><strong>Registro Sanitario</strong><span>Centro Sanitario CS 10443</span></div>
+            </div>
+          </div>
+          <form class="contact__form-new" id="contactForm">
+            <input type="text" name="name" placeholder="Nombre completo" required class="contact__input-new">
+            <input type="email" name="email" placeholder="Email" required class="contact__input-new">
+            <input type="tel" name="phone" placeholder="Teléfono" class="contact__input-new">
+            <select name="interest" class="contact__input-new">
+              <option value="">Me interesa...</option>
+              <option>Psicología</option><option>Coaching</option><option>Tratamiento Manual</option>
+              <option>Nutrición</option><option>Belleza</option><option>Medicina Natural</option>
+              <option>Intervención Psicoeducativa</option><option>Clases</option>
+            </select>
+            <textarea name="message" placeholder="Cuéntanos qué necesitas..." rows="4" class="contact__input-new"></textarea>
+            <label class="contact__consent"><input type="checkbox" required><span>Acepto la <a href="#">política de privacidad</a></span></label>
+            <button type="submit" class="btn btn--primary btn--full">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+  FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="https://clinicasaludymas.com/wp-content/uploads/2020/12/Logo.jpg" alt="Clínica Salud y Más" class="footer__logo">
+          <p>Centro sanitario integral en Boadilla del Monte desde 2012. Cuidando de tu salud física, mental y emocional.</p>
+          <div class="footer__social">
+            <a href="https://facebook.com/saludymasboadilla" class="footer__social-link" target="_blank" rel="noopener">FB</a>
+            <a href="https://instagram.com/clinica_salud_y_mas" class="footer__social-link" target="_blank" rel="noopener">IG</a>
+            <a href="#" class="footer__social-link" target="_blank" rel="noopener">LI</a>
+            <a href="#" class="footer__social-link" target="_blank" rel="noopener">TW</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Terapias</h4>
+          <ul>
+            <li><button data-tab="psicologia">Psicología</button></li>
+            <li><button data-tab="coaching">Coaching</button></li>
+            <li><button data-tab="tratamiento-manual">Tratamiento Manual</button></li>
+            <li><button data-tab="nutricion">Nutrición</button></li>
+            <li><button data-tab="belleza">Belleza</button></li>
+            <li><button data-tab="medicina-natural">Medicina Natural</button></li>
+            <li><button data-tab="clases">Clases</button></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Información</h4>
+          <ul>
+            <li><button data-tab="inicio">Inicio</button></li>
+            <li><button data-tab="profesionales">Profesionales</button></li>
+            <li><button data-tab="videoconsulta">Videoconsulta</button></li>
+            <li><button data-tab="noticias">Noticias</button></li>
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Horario</h4>
+          <ul class="footer__hours">
+            <li><span>Lunes a Viernes</span> <span>9:00 – 21:00</span></li>
+            <li><span>Sábados</span> <span>10:00 – 14:00</span></li>
+            <li><span>Domingos</span> <span>Cerrado</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2012-2026 Clínica Salud y Más. Centro Sanitario CS 10443.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
