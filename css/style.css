@@ -328,6 +328,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.7;
   text-shadow: 0 1px 8px rgba(0,0,0,0.3);
 }
+.hero__google-rating {
+  font-size: 0.95rem;
+  color: #FFD700;
+  margin: 0 auto 2rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
 .hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* Hero Arrows */
