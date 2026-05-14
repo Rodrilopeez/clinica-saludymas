@@ -722,37 +722,119 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .stat__label { display: block; margin-top: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; text-transform: uppercase; }
 
 /* ============================================================
-   TEAM GRID
+   PROFESSIONAL CARDS
    ============================================================ */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+.pro-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
-.team-card {
+
+.pro-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 2.5rem 2rem;
-  text-align: center;
+  overflow: hidden;
   border: 1px solid var(--gray-200);
-  transition: all var(--transition);
+  transition: all 0.35s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
-.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.team-card__avatar {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue-light), var(--purple-light));
-  color: var(--blue);
+.pro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  border-color: var(--gold, #C5A572);
+}
+
+.pro-card__photo {
+  position: relative;
+  min-height: 280px;
+  background: var(--gray-100);
+  overflow: hidden;
+}
+.pro-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.pro-card:hover .pro-card__photo img {
+  transform: scale(1.04);
+}
+
+.pro-card__body {
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pro-card__specialty {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold, #C5A572);
+  margin-bottom: 0.35rem;
+}
+.pro-card__name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
 }
-.team-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--gray-900); }
-.team-card p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.6; }
+.pro-card__reg {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+.pro-card__role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 0.6rem;
+}
+.pro-card__desc {
+  font-size: 0.92rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+}
+.pro-card__formacion {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+}
+.pro-card__formacion strong {
+  color: var(--gray-700);
+  font-weight: 600;
+}
+
+.pro-card__therapies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+.pro-card__therapies span {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.78rem;
+  background: var(--gray-50);
+  color: var(--gray-600);
+  border-radius: 100px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.2s ease;
+}
+.pro-card:hover .pro-card__therapies span {
+  background: #faf7f2;
+  border-color: #e0d5c5;
+}
 
 /* ============================================================
    NEWS
@@ -913,7 +995,7 @@ select.contact__input-new option { color: var(--gray-800); }
   .tab-detail__grid { grid-template-columns: 1fr; }
   .tab-detail__list { grid-template-columns: 1fr; }
   .philosophy__grid, .excellence__grid, .contact__grid { gap: 3rem; }
-  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .pro-card { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 
@@ -957,7 +1039,8 @@ select.contact__input-new option { color: var(--gray-800); }
   .philosophy__grid, .excellence__grid, .contact__grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr 1fr; }
   .news__grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
+  .pro-card { grid-template-columns: 1fr; }
+  .pro-card__photo { min-height: 220px; }
   .tab-detail__list { grid-template-columns: 1fr; }
 
   .hero__title { font-size: 2.4rem; }
