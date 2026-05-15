@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (targetPanel) {
       targetPanel.classList.add('active');
       // Re-trigger animations inside the tab
-      targetPanel.querySelectorAll('.service-card, .news-card-new, .stat, .pro-card, .philosophy__image, .philosophy__content, .excellence__content, .pro-detail__image, .pro-detail__content')
+      targetPanel.querySelectorAll('.service-card, .news-card-new, .stat, .pro-card, .philosophy__image, .philosophy__content, .excellence__content, .pro-detail-page__photo, .pro-detail-page__content')
         .forEach(el => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
