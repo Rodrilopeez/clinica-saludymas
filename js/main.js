@@ -111,19 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetPanel = document.getElementById('tab-' + targetTab);
     if (targetPanel) {
       targetPanel.classList.add('active');
-      // Re-trigger animations inside the tab
-      targetPanel.querySelectorAll('.service-card, .news-card-new, .stat, .pro-card, .philosophy__image, .philosophy__content, .excellence__content, .pro-detail-page__photo, .pro-detail-page__content')
-        .forEach(el => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(30px)';
-          el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              el.style.opacity = '1';
-              el.style.transform = 'translateY(0)';
-            }, 50);
-          });
-        });
+      // Re-trigger reveal animations inside the tab
+      targetPanel.querySelectorAll('.reveal').forEach(el => {
+        el.classList.remove('reveal--visible');
+      });
+      setTimeout(() => { revealObserverTrigger(); }, 50);
     }
 
     // Update active state on header buttons
@@ -289,19 +281,59 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // ==========================================================
-  // INITIAL ANIMATIONS
+  // SCROLL REVEAL ANIMATIONS
   // ==========================================================
-  const initialAnims = document.querySelectorAll('#tab-inicio .service-card, #tab-inicio .philosophy__image, #tab-inicio .philosophy__content, #tab-inicio .excellence__content, #tab-profesionales .pro-card');
-  initialAnims.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = `opacity 0.7s ease ${i * 0.06}s, transform 0.7s ease ${i * 0.06}s`;
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 100);
+  function setupRevealAnimations() {
+    const revealTargets = document.querySelectorAll(
+      '.service-card, .testimonial-card, .pro-card, .news-card-new, .pricing-card, ' +
+      '.philosophy__image, .philosophy__content, .excellence__content, ' +
+      '.pro-detail-page__photo, .pro-detail-page__content, ' +
+      '.location-info__card, .tab-detail__info, .excellence__stats'
+    );
+
+    revealTargets.forEach((el, i) => {
+      if (el.classList.contains('reveal')) return; // already set up
+      el.classList.add('reveal');
+      // Add stagger delay based on sibling position within a grid
+      const parent = el.parentElement;
+      if (parent) {
+        const siblings = Array.from(parent.children).filter(c => c.classList.contains('reveal'));
+        const idx = siblings.indexOf(el);
+        if (idx >= 0 && idx < 8) {
+          el.classList.add('reveal--d' + (idx + 1));
+        }
+      }
     });
-  });
+
+    // Observe reveal elements
+    window._revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal--visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      window._revealObserver.observe(el);
+    });
+
+    // Initial check for elements already in view
+    setTimeout(() => revealObserverTrigger(), 120);
+  }
+
+  function revealObserverTrigger() {
+    if (!window._revealObserver) return;
+    // Re-observe all reveal elements (some may be new from tab switch)
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (!el.classList.contains('reveal--visible')) {
+        // Force re-observation
+        window._revealObserver.unobserve(el);
+        window._revealObserver.observe(el);
+      }
+    });
+  }
+
+  setupRevealAnimations();
 
 });
