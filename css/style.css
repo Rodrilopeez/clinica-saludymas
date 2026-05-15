@@ -192,6 +192,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* Mega Menu */
 .header__arrow { font-size: 0.55rem; margin-left: 3px; }
 .header__dropdown { position: relative; }
+.header__dropdown::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1.5rem;
+  z-index: 99;
+}
 .header__mega {
   position: absolute;
   top: calc(100% + 1rem);
