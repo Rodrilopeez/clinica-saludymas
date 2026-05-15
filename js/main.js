@@ -228,11 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error('Error del servidor');
         }
       } catch (err) {
-        // Fallback: show email link if Formspree not configured
+        // Formspree not configured — switch button to Calendly
         feedback.style.display = 'block';
-        feedback.innerHTML = 'O escríbenos directamente a <a href="mailto:info@clinicasaludymas.com">info@clinicasaludymas.com</a>';
-        btn.textContent = 'Ver disponibilidad';
+        feedback.innerHTML = 'Reserva tu cita directamente desde nuestro calendario:';
+        btn.textContent = 'Abrir Calendly';
+        btn.type = 'button';
         btn.disabled = false;
+        btn.onclick = function() { openCalendly('primera-consulta'); };
       }
 
       setTimeout(() => {
@@ -249,37 +251,53 @@ document.addEventListener('DOMContentLoaded', () => {
   // CALENDLY — load on demand + openCalendly helper
   // ==========================================================
   let calendlyLoaded = false;
+  let calendlyReady = false;
+
   function loadCalendly() {
     if (calendlyLoaded) return;
     calendlyLoaded = true;
     const s = document.createElement('script');
     s.src = 'https://assets.calendly.com/assets/external/widget.js';
     s.async = true;
+    s.onload = function() { calendlyReady = true; };
     document.head.appendChild(s);
   }
 
-  // Global helper: ensures Calendly is loaded, then opens popup
+  // Global helper: opens Calendly popup with fallback
   window.openCalendly = function(slug) {
     loadCalendly();
-    const url = 'https://calendly.com/lopezmartirodrigo/' + slug;
-    // If Calendly already loaded, open directly
-    if (window.Calendly) {
-      Calendly.initPopupWidget({ url: url });
+    var url = 'https://calendly.com/lopezmartirodrigo/' + slug;
+
+    function openPopup() {
+      try {
+        Calendly.initPopupWidget({ url: url });
+      } catch (e) {
+        window.open(url, '_blank');
+      }
+    }
+
+    if (calendlyReady && window.Calendly) {
+      openPopup();
     } else {
-      // Wait for script to load
-      const check = setInterval(function() {
-        if (window.Calendly) {
+      var check = setInterval(function() {
+        if (window.Calendly && typeof Calendly.initPopupWidget === 'function') {
           clearInterval(check);
-          Calendly.initPopupWidget({ url: url });
+          openPopup();
         }
-      }, 200);
-      // Timeout after 5s
-      setTimeout(function() { clearInterval(check); }, 5000);
+      }, 150);
+      // Fallback: if Calendly fails to load in 5s, open in new tab
+      setTimeout(function() {
+        if (check) {
+          clearInterval(check);
+          window.open(url, '_blank');
+        }
+      }, 5000);
     }
   };
 
-  // Preload Calendly when hovering the reservar CTA
-  const reservarBtn = document.querySelector('[data-tab="reservar"]');
+  // Preload Calendly on page load + hover/click on reservar CTA
+  loadCalendly();
+  var reservarBtn = document.querySelector('[data-tab="reservar"]');
   if (reservarBtn) {
     reservarBtn.addEventListener('mouseenter', loadCalendly, { once: true });
     reservarBtn.addEventListener('click', loadCalendly, { once: true });
