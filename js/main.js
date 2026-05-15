@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (targetPanel) {
       targetPanel.classList.add('active');
       // Re-trigger animations inside the tab
-      targetPanel.querySelectorAll('.service-card, .news-card-new, .stat, .team-card, .philosophy__image, .philosophy__content, .excellence__content')
+      targetPanel.querySelectorAll('.service-card, .news-card-new, .stat, .pro-card, .philosophy__image, .philosophy__content, .excellence__content, .pro-detail__image, .pro-detail__content')
         .forEach(el => {
           el.style.opacity = '0';
           el.style.transform = 'translateY(30px)';
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================
   // INITIAL ANIMATIONS
   // ==========================================================
-  const initialAnims = document.querySelectorAll('#tab-inicio .service-card, #tab-inicio .philosophy__image, #tab-inicio .philosophy__content, #tab-inicio .excellence__content');
+  const initialAnims = document.querySelectorAll('#tab-inicio .service-card, #tab-inicio .philosophy__image, #tab-inicio .philosophy__content, #tab-inicio .excellence__content, #tab-profesionales .pro-card');
   initialAnims.forEach((el, i) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
