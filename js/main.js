@@ -202,28 +202,66 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.stat__number').forEach(s => statObserver.observe(s));
 
   // ==========================================================
-  // CONTACT FORM
+  // CONTACT FORM (Formspree / fallback)
   // ==========================================================
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button');
+      const feedback = document.getElementById('formFeedback');
       const originalText = btn.textContent;
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          btn.textContent = 'Mensaje Enviado ✓';
+          btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+          form.reset();
+        } else {
+          throw new Error('Error del servidor');
+        }
+      } catch (err) {
+        // Fallback: show email link if Formspree not configured
+        feedback.style.display = 'block';
+        feedback.innerHTML = 'O escríbenos directamente a <a href="mailto:info@clinicasaludymas.com">info@clinicasaludymas.com</a>';
+        btn.textContent = 'Ver disponibilidad';
+        btn.disabled = false;
+      }
+
       setTimeout(() => {
-        btn.textContent = 'Mensaje Enviado ✓';
-        btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
-        form.reset();
-        setTimeout(() => {
+        if (btn.textContent.includes('Enviado')) {
           btn.textContent = originalText;
           btn.style.background = '';
           btn.disabled = false;
-        }, 3000);
-      }, 1000);
+        }
+      }, 4000);
     });
+  }
+
+  // ==========================================================
+  // CALENDLY — load on demand when reservar tab opens
+  // ==========================================================
+  let calendlyLoaded = false;
+  function loadCalendly() {
+    if (calendlyLoaded) return;
+    calendlyLoaded = true;
+    const s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  // Preload Calendly when hovering the reservar CTA
+  const reservarBtn = document.querySelector('[data-tab="reservar"]');
+  if (reservarBtn) {
+    reservarBtn.addEventListener('mouseenter', loadCalendly, { once: true });
+    reservarBtn.addEventListener('click', loadCalendly, { once: true });
   }
 
   // ==========================================================
