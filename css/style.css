@@ -2018,6 +2018,18 @@ select.contact__input-new option { color: var(--gray-800); }
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
+.newsletter-cta__error {
+  display: none;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  padding: 0.75rem 1rem;
+  background: rgba(220,38,38,0.12);
+  border-radius: 8px;
+  margin-top: -0.5rem;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media (max-width: 768px) {
   .newsletter-cta__form { flex-direction: column; }

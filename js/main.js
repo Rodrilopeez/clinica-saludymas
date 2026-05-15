@@ -249,9 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = newsletterForm.querySelector('button');
       const input = newsletterForm.querySelector('input');
       const success = document.getElementById('newsletterSuccess');
+      const error = document.getElementById('newsletterError');
       const originalText = btn.textContent;
       btn.textContent = 'Enviando...';
       btn.disabled = true;
+      if (error) error.style.display = 'none';
 
       try {
         const res = await fetch(newsletterForm.action, {
@@ -263,12 +265,16 @@ document.addEventListener('DOMContentLoaded', () => {
           newsletterForm.style.display = 'none';
           success.style.display = 'block';
         } else {
-          throw new Error();
+          const data = await res.json();
+          throw new Error(data.error || 'Error del servidor');
         }
       } catch (err) {
-        // Formspree not configured — show confirmation anyway
-        newsletterForm.style.display = 'none';
-        success.style.display = 'block';
+        btn.textContent = originalText;
+        btn.disabled = false;
+        if (error) {
+          error.style.display = 'block';
+          error.textContent = 'No se pudo enviar. Intentalo de nuevo o escribenos a info@clinicasaludymas.com';
+        }
       }
     });
   }
