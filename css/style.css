@@ -28,6 +28,7 @@
   --gray-400: #ADB5BD;
   --gray-500: #868E96;
   --gray-600: #495057;
+  --gray-650: #4a4a4a;
   --gray-700: #343A40;
   --gray-800: #212529;
   --gray-900: #0D1117;
@@ -752,7 +753,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .pro-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-  border-color: var(--gold, #C5A572);
+  border-color: var(--gold);
 }
 
 .pro-card__photo {
@@ -784,7 +785,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--gold, #C5A572);
+  color: var(--gold);
   margin-bottom: 0.35rem;
 }
 .pro-card__name {
@@ -988,7 +989,7 @@ button.pro-card > * {
 
 .pro-detail-page__bio {
   font-size: 1.05rem;
-  color: var(--gray-650, #4a4a4a);
+  color: var(--gray-650);
   line-height: 1.8;
   margin-bottom: 2.5rem;
 }
@@ -1416,8 +1417,6 @@ select.contact__input-new option { color: var(--gray-800); }
   margin-bottom: 1.25rem;
 }
 .footer__col ul { display: flex; flex-direction: column; gap: 0.5rem; }
-.footer__col button { font-size: 0.88rem; color: rgba(255,255,255,0.6); transition: color var(--transition); text-align: left; cursor: pointer; }
-.footer__col button:hover { color: var(--gold); }
 .footer__col a { font-size: 0.88rem; color: rgba(255,255,255,0.6); transition: color var(--transition); }
 .footer__col a:hover { color: var(--gold); }
 .footer__hours li { display: flex; justify-content: space-between; font-size: 0.88rem; gap: 1rem; }
