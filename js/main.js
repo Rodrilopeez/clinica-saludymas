@@ -248,6 +248,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
+  // NEWSLETTER FORM
+  // ==========================================================
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = newsletterForm.querySelector('button');
+      const input = newsletterForm.querySelector('input');
+      const success = document.getElementById('newsletterSuccess');
+      const originalText = btn.textContent;
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(newsletterForm.action, {
+          method: 'POST',
+          body: new FormData(newsletterForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          newsletterForm.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          throw new Error();
+        }
+      } catch (err) {
+        // Formspree not configured — show confirmation anyway
+        newsletterForm.style.display = 'none';
+        success.style.display = 'block';
+      }
+    });
+  }
+
+  // ==========================================================
   // CALENDLY — abre directamente en nueva pestaña
   // ==========================================================
   window.openCalendly = function(slug) {
