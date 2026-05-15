@@ -1521,6 +1521,102 @@ select.contact__input-new option { color: var(--gray-800); }
 }
 
 /* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials {
+  padding: 6rem 0;
+  background: var(--white);
+}
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.testimonial-card {
+  background: var(--off-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+  background: var(--white);
+}
+.testimonial-card__stars {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+.testimonial-card__quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--gray-700);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex: 1;
+  position: relative;
+  padding-top: 0.5rem;
+}
+.testimonial-card__quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -1rem;
+  left: -0.25rem;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--blue);
+  opacity: 0.15;
+  font-style: normal;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 1px solid var(--gray-200);
+  padding-top: 1rem;
+}
+.testimonial-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-light), var(--purple-light));
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+}
+.testimonial-card__name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  font-family: 'Inter', sans-serif;
+}
+.testimonial-card__detail {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  margin-top: 1px;
+}
+
+@media (max-width: 1024px) {
+  .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .testimonials__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    WHATSAPP FLOATING BUTTON
    ============================================================ */
 .whatsapp-float {
