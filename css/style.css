@@ -843,6 +843,9 @@ button.pro-card {
   font-family: inherit;
   cursor: pointer;
 }
+button.pro-card > * {
+  pointer-events: none;
+}
 
 .btn--lg {
   padding: 1.1rem 2.5rem;
