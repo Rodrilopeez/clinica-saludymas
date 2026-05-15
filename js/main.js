@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // CALENDLY — load on demand when reservar tab opens
+  // CALENDLY — load on demand + openCalendly helper
   // ==========================================================
   let calendlyLoaded = false;
   function loadCalendly() {
@@ -257,6 +257,27 @@ document.addEventListener('DOMContentLoaded', () => {
     s.async = true;
     document.head.appendChild(s);
   }
+
+  // Global helper: ensures Calendly is loaded, then opens popup
+  window.openCalendly = function(slug) {
+    loadCalendly();
+    const url = 'https://calendly.com/lopezmartirodrigo/' + slug;
+    // If Calendly already loaded, open directly
+    if (window.Calendly) {
+      Calendly.initPopupWidget({ url: url });
+    } else {
+      // Wait for script to load
+      const check = setInterval(function() {
+        if (window.Calendly) {
+          clearInterval(check);
+          Calendly.initPopupWidget({ url: url });
+        }
+      }, 200);
+      // Timeout after 5s
+      setTimeout(function() { clearInterval(check); }, 5000);
+    }
+  };
+
   // Preload Calendly when hovering the reservar CTA
   const reservarBtn = document.querySelector('[data-tab="reservar"]');
   if (reservarBtn) {
