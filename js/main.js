@@ -248,60 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // CALENDLY — load on demand + openCalendly helper
+  // CALENDLY — abre directamente en nueva pestaña
   // ==========================================================
-  let calendlyLoaded = false;
-  let calendlyReady = false;
-
-  function loadCalendly() {
-    if (calendlyLoaded) return;
-    calendlyLoaded = true;
-    const s = document.createElement('script');
-    s.src = 'https://assets.calendly.com/assets/external/widget.js';
-    s.async = true;
-    s.onload = function() { calendlyReady = true; };
-    document.head.appendChild(s);
-  }
-
-  // Global helper: opens Calendly popup with fallback
   window.openCalendly = function(slug) {
-    loadCalendly();
-    var url = 'https://calendly.com/lopezmartirodrigo/' + slug;
-
-    function openPopup() {
-      try {
-        Calendly.initPopupWidget({ url: url });
-      } catch (e) {
-        window.open(url, '_blank');
-      }
-    }
-
-    if (calendlyReady && window.Calendly) {
-      openPopup();
-    } else {
-      var check = setInterval(function() {
-        if (window.Calendly && typeof Calendly.initPopupWidget === 'function') {
-          clearInterval(check);
-          openPopup();
-        }
-      }, 150);
-      // Fallback: if Calendly fails to load in 5s, open in new tab
-      setTimeout(function() {
-        if (check) {
-          clearInterval(check);
-          window.open(url, '_blank');
-        }
-      }, 5000);
-    }
+    window.open('https://calendly.com/lopezmartirodrigo/' + slug, '_blank');
   };
-
-  // Preload Calendly on page load + hover/click on reservar CTA
-  loadCalendly();
-  var reservarBtn = document.querySelector('[data-tab="reservar"]');
-  if (reservarBtn) {
-    reservarBtn.addEventListener('mouseenter', loadCalendly, { once: true });
-    reservarBtn.addEventListener('click', loadCalendly, { once: true });
-  }
 
   // ==========================================================
   // INITIAL ANIMATIONS
