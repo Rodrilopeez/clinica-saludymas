@@ -161,7 +161,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const initialHash = window.location.hash.replace('#', '');
   if (initialHash && document.getElementById('tab-' + initialHash)) {
     switchTab(initialHash);
+  } else {
+    // Auto-detect tab from page filename
+    const pathParts = window.location.pathname.split('/');
+    const pageFile = pathParts[pathParts.length - 1].replace('.html', '') || 'index';
+    const tabName = pageFile === 'index' ? 'inicio' : pageFile;
+    if (document.getElementById('tab-' + tabName)) {
+      switchTab(tabName);
+    }
   }
+
+  // Highlight current page in header nav
+  (function highlightNav() {
+    const pathParts = window.location.pathname.split('/');
+    const currentFile = pathParts[pathParts.length - 1] || 'index.html';
+    document.querySelectorAll('.header__link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentFile || (currentFile === '' && href === 'index.html')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  })();
 
   // ==========================================================
   // STAT COUNTERS
