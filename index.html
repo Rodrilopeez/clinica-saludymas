@@ -68,7 +68,7 @@
           <li><button class="header__link" data-tab="videoconsulta">Videoconsulta</button></li>
           <li><button class="header__link" data-tab="precios">Precios</button></li>
           <li><button class="header__link" data-tab="noticias">Noticias</button></li>
-          <li><button class="header__link header__link--cta" data-tab="reservar">Reservar Cita</button></li>
+          <li><button class="header__link header__link--cta" onclick="openCalendly('primera-consulta'); return false;">Reservar Cita</button></li>
         </ul>
       </nav>
       <button class="header__burger" id="burgerBtn" aria-label="Menú">
@@ -101,7 +101,7 @@
           <p class="hero__google-rating">Más de 200 pacientes nos puntúan con 4.7/5 ⭐ en Google</p>
           <div class="hero__actions">
             <button class="btn btn--primary" data-tab="terapias">Nuestras Terapias</button>
-            <button class="btn btn--outline" data-tab="contacto">Consulta gratuita de 15 min</button>
+            <button class="btn btn--outline" onclick="openCalendly('primera-consulta'); return false;">Consulta gratuita de 15 min</button>
           </div>
         </div>
         <div class="hero__indicators" id="heroIndicators">
@@ -270,7 +270,7 @@
               <li>Terapia de pareja</li>
               <li>Mindfulness y técnicas de regulación emocional</li>
             </ul>
-            <button class="btn btn--primary" data-tab="contacto">Consulta gratuita de 15 min</button>
+            <button class="btn btn--primary" onclick="openCalendly('sesion-de-psicologia'); return false;">Consulta gratuita de 15 min</button>
           </div>
           <aside class="tab-detail__sidebar">
             <div class="tab-detail__info">
