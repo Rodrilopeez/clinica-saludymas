@@ -50,10 +50,23 @@
     "priceRange": "\u20AC\u20AC"
   }
   </script>
+  
+  <link rel="alternate" hreflang="es" href="https://rodrilopeez.github.io/clinica-saludymas/nutricion">
+  <link rel="alternate" hreflang="en" href="https://rodrilopeez.github.io/clinica-saludymas/en/nutricion.html">
+  <link rel="alternate" hreflang="x-default" href="https://rodrilopeez.github.io/clinica-saludymas/nutricion">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@0,400;0,500;0,600;0,700&display=swap">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .header__lang { display: flex; align-items: center; gap: 6px; margin-left: 8px; }
+    .header__lang-link { padding: 0 4px !important; opacity: 0.6; font-weight: 500; font-size: 0.9rem; }
+    .header__lang-link:hover { opacity: 1; }
+    .header__lang-current { font-weight: 700; color: var(--blue,#005DAB); font-size: 0.9rem; }
+    .header__lang-sep { opacity: 0.3; font-size: 0.85rem; }
+    @media (max-width: 900px) { .header__lang { padding: 0.5rem 0; border-top: 1px solid var(--gray-200); margin-top: 0.5rem; } }
+  </style>
 </head>
 <body>
 
@@ -127,6 +140,7 @@
           <li><a href="videoconsulta.html" class="header__link">Videoconsulta</a></li>
           <li><a href="precios.html" class="header__link">Precios</a></li>
           <li><a href="noticias.html" class="header__link">Noticias</a></li>
+          <li class="header__lang"><span class="header__lang-current">ES</span><span class="header__lang-sep">|</span><a href="en/nutricion.html" class="header__link header__lang-link" title="Switch to English" aria-label="Cambiar a inglés">EN</a></li>
           <li><button class="header__link header__link--cta" onclick="openCalendly('primera-consulta'); return false;">Reservar Cita</button></li>
         </ul>
       </nav>
