@@ -1532,7 +1532,7 @@ select.contact__input-new option { color: var(--gray-800); }
   gap: 3rem;
   margin-bottom: 3rem;
 }
-.footer__logo { height: 45px; margin-bottom: 1rem; }
+.footer__logo { width: auto; height: 45px; margin-bottom: 1rem; }
 .footer__brand p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem; }
 .footer__social { display: flex; gap: 0.5rem; }
 .footer__social-link {
