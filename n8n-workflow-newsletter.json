@@ -1,0 +1,153 @@
+{
+  "name": "Newsletter Clinica Salud y Mas - Brevo",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "newsletter-subscribe",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-receive",
+      "name": "Recibir email del formulario",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "contact-email",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-contact-data",
+      "name": "Preparar datos del contacto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.brevo.com/v3/contacts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api-key",
+              "value": "=TU_BREVO_API_KEY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"email\": \"={{ $json.email }}\",\n  \"listIds\": [TU_BREVO_LIST_ID],\n  \"updateEnabled\": true\n}",
+        "options": {}
+      },
+      "id": "brevo-create-contact",
+      "name": "Añadir contacto a Brevo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.brevo.com/v3/smtp/email",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api-key",
+              "value": "=TU_BREVO_API_KEY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"sender\": {\n    \"name\": \"Clinica Salud y Mas\",\n    \"email\": \"info@clinicasaludymas.com\"\n  },\n  \"to\": [{ \"email\": \"={{ $('Preparar datos del contacto').item.json.email }}\" }],\n  \"subject\": \"Bienvenido a la newsletter de Salud y Mas 💚\",\n  \"htmlContent\": \"<h1>Gracias por suscribirte, {{ contact.FIRSTNAME || 'te damos la bienvenida' }}</h1><p>Somos el equipo de <strong>Clinica Salud y Mas</strong>. A partir de ahora recibiras cada 15 dias consejos de salud, ejercicios y tips de bienestar directamente en tu email.</p><p><strong>Tu primer consejo:</strong> Dedica 10 minutos al dia a respirar profundamente. Inhala en 4 segundos, mantén 4 segundos, exhala en 6 segundos. Esto reduce el cortisol y mejora tu estado de animo.</p><p style='margin-top:24px;padding:16px;background:#f0f7f4;border-radius:8px;'>📅 Recuerda: tu primera consulta es gratuita. <a href='https://clinicasaludymas.com/contacto/'>Reservala aqui</a></p><p style='margin-top:24px;color:#666;font-size:12px;'>Recibes este email porque te suscribiste en clinicasaludymas.com. <a href='{{ unsubscribe }}'>Darme de baja</a></p>\"\n}",
+        "options": {}
+      },
+      "id": "brevo-send-welcome",
+      "name": "Enviar email de bienvenida",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1000, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": true,\n  \"message\": \"Suscripcion confirmada\"\n}",
+        "options": {}
+      },
+      "id": "respond-success",
+      "name": "Responder OK al formulario",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    }
+  ],
+  "connections": {
+    "Recibir email del formulario": {
+      "main": [
+        [
+          {
+            "node": "Preparar datos del contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar datos del contacto": {
+      "main": [
+        [
+          {
+            "node": "Añadir contacto a Brevo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Añadir contacto a Brevo": {
+      "main": [
+        [
+          {
+            "node": "Enviar email de bienvenida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email de bienvenida": {
+      "main": [
+        [
+          {
+            "node": "Responder OK al formulario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "1.0.0",
+  "active": true
+}

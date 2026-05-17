@@ -262,8 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // NEWSLETTER FORM
+  // NEWSLETTER FORM - Integrado con n8n + Brevo
   // ==========================================================
+  const N8N_WEBHOOK = 'https://n8n.srv1677239.hstgr.cloud/webhook/newsletter-subscribe';
+
   const newsletterForm = document.getElementById('newsletterForm');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', async (e) => {
@@ -278,17 +280,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (error) error.style.display = 'none';
 
       try {
-        const res = await fetch(newsletterForm.action, {
+        const res = await fetch(N8N_WEBHOOK, {
           method: 'POST',
-          body: new FormData(newsletterForm),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: input.value.trim() })
         });
         if (res.ok) {
           newsletterForm.style.display = 'none';
           success.style.display = 'block';
         } else {
           const data = await res.json();
-          throw new Error(data.error || 'Error del servidor');
+          throw new Error(data.message || 'Error del servidor');
         }
       } catch (err) {
         btn.textContent = originalText;
