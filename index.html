@@ -1703,5 +1703,48 @@
   })();
   </script>
 
-</body>
+</bo<!-- Newsletter submit -->
+<script>
+(function(){
+  var form = document.getElementById('newsletterForm');
+  if (!form) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var input = form.querySelector('input[type="email"]');
+  var success = document.getElementById('newsletterSuccess');
+  var error = document.getElementById('newsletterError');
+  var btnOriginal = btn ? btn.textContent : '';
+
+  if (success) success.style.display = 'none';
+  if (error) error.style.display = 'none';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = (input.value || '').trim();
+    if (!email) return;
+
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+    if (error) { error.style.display = 'none'; error.textContent = ''; }
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    })
+    .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function(){ return {}; }); })
+    .then(function(){
+      form.style.display = 'none';
+      if (success) success.style.display = 'block';
+      if (window.gtag) gtag('event', 'newsletter_signup', { method: 'web_form' });
+      if (window.fbq)  fbq('track', 'Lead', { content_name: 'Newsletter' });
+    })
+    .catch(function(){
+      if (error) {
+        error.textContent = 'Ha ocurrido un error. Por favor intentalo de nuevo en unos segundos.';
+        error.style.display = 'block';
+      }
+      if (btn) { btn.disabled = false; btn.textContent = btnOriginal; }
+    });
+  });
+})();
+</script>dy>
 </html>
