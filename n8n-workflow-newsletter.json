@@ -21,7 +21,7 @@
             {
               "id": "contact-email",
               "name": "email",
-              "value": "={{ $json.body.email }}",
+              "value": "={{ $json.email }}",
               "type": "string"
             }
           ]
