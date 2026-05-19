@@ -304,10 +304,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // CALENDLY — abre directamente en nueva pestaña
+  // CAL.COM — abre directamente en nueva pestaña
   // ==========================================================
   window.openCalendly = function(slug) {
-    window.open('https://calendly.com/lopezmartirodrigo/' + slug, '_blank');
+    // Mapeo de slugs antiguos a los nuevos de Cal.com
+    var slugMap = {
+      'belleza': 'sesion-de-belleza',
+      'belleza-clon': 'sesion-de-belleza',
+      'consulta-de-nutricion': 'sesion-de-nutricion'
+    };
+    var finalSlug = slugMap[slug] || slug;
+    window.open('https://cal.eu/clinica-saludymas/' + finalSlug, '_blank');
   };
 
   // ==========================================================
