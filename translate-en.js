@@ -250,8 +250,8 @@ files.forEach(f => {
   c = replaceAll(c, [
     ['Utilizamos cookies propias y de terceros para analizar el trafico, mejorar nuestros servicios y medir el rendimiento de la web. Puedes aceptar todas las cookies o rechazarlas.',
      'We use our own and third-party cookies to analyze traffic, improve our services, and measure website performance. You can accept all cookies or decline them.'],
-    ['Politica de privacidad', 'Privacy Policy'],
-    ['politica de privacidad', 'privacy policy'],
+    ['Política de privacidad', 'Privacy Policy'],
+    ['política de privacidad', 'privacy policy'],
     ['aria-label="Rechazar cookies">Rechazar<', 'aria-label="Decline cookies">Decline<'],
     ['aria-label="Aceptar cookies">Aceptar<', 'aria-label="Accept cookies">Accept<'],
   ]);
@@ -1005,15 +1005,15 @@ files.forEach(f => {
   // ============================================================
   c = replaceAll(c, [
     ['<h2>Recibe consejos de salud en tu email</h2>', '<h2>Receive health tips in your inbox</h2>'],
-    ['<p>Nuestros profesionales comparten ejercicios, tips de bienestar y novedades cada 15 dias. Sin spam, solo contenido que suma.</p>',
+    ['<p>Nuestros profesionales comparten ejercicios, tips de bienestar y novedades cada 15 días. Sin spam, solo contenido que suma.</p>',
      '<p>Our professionals share exercises, wellness tips, and news every 15 days. No spam, just valuable content.</p>'],
     ['placeholder="Tu mejor email"', 'placeholder="Your best email"'],
     ['aria-label="Tu direccion de email"', 'aria-label="Your email address"'],
     ['>Suscribirme<', '>Subscribe<'],
-    ['<p class="newsletter-cta__note">Sin spam, solo contenido de valor. Al suscribirte aceptas nuestra <a href="https://clinicasaludymas.com/politica-de-privacidad/" target="_blank" rel="noopener">politica de privacidad</a>.</p>',
+    ['<p class="newsletter-cta__note">Sin spam, solo contenido de valor. Al suscribirte aceptas nuestra <a href="https://clinicasaludymas.com/politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</p>',
      '<p class="newsletter-cta__note">No spam, just valuable content. By subscribing you accept our <a href="https://clinicasaludymas.com/politica-de-privacidad/" target="_blank" rel="noopener">privacy policy</a>.</p>'],
     ['<h3>Gracias por suscribirte</h3>', '<h3>Thank you for subscribing</h3>'],
-    ['<p>Recibiras nuestro primer correo muy pronto.</p>', '<p>You will receive our first email very soon.</p>'],
+    ['<p>Recibirás nuestro primer correo muy pronto.</p>', '<p>You will receive our first email very soon.</p>'],
   ]);
 
   // ============================================================
